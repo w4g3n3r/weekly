@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HelpInstructionMessage" xml:space="preserve">
+    <value>Need more help? Run [olive]wk --help[/]. To turn off these help messages, set [olive]ShowHelpMessages[/] to [olive]false[/] in your config file.</value>
+  </data>
+  <data name="MissingWorkLogDirectoryErrorMessage" xml:space="preserve">
+    <value>Can't find your work log folder.</value>
+  </data>
+  <data name="MissingTemplateDirectoryHelpMessage" xml:space="preserve">
+    <value>Set [olive]TemplateDirectory[/] in your config file at [olive]{0}[/] to a valid folder in your work log direcotry, or run [olive]wk init[/] from within your work log directory to let [teal]Weekly[/] set things up for you. </value>
+  </data>
+  <data name="MissingWorkLogDirectoryHelpMessage" xml:space="preserve">
+    <value>Set [olive]WorkLogDirectory[/] in your config file at [olive]{0}[/] to a valid folder, or run [olive]wk init[/] from within the directory you'd like to use, to let [teal]Weekly[/] set things up for you.</value>
+  </data>
+  <data name="MissingTemplateDirectoryErrorMessage" xml:space="preserve">
+    <value>Can't find your template folder.</value>
+  </data>
+  <data name="WorkLogNotFoundErrorMessage" xml:space="preserve">
+    <value>The work log wasn't found.</value>
+  </data>
+  <data name="WorkLogNotFoundHelpMessage" xml:space="preserve">
+    <value>The work log name you used doesn't match any files in your work log directory, or the current work log hasn’t been created yet. Use [olive]wk create[/] or just run [olive]wk add[/] to start one automatically.</value>
+  </data>
+  <data name="WorkLogParseErrorMessage" xml:space="preserve">
+    <value>There’s a problem reading the work log file format.</value>
+  </data>
+  <data name="WorkLogParseHelpMessage" xml:space="preserve">
+    <value>If you edited the file manually, something may have broken it. Change it's file extension or delete it, then run [olive]wk create[/] to start fresh.</value>
+  </data>
+  <data name="TemplateNotFoundHelpMessage" xml:space="preserve">
+    <value>The template name you used doesn’t match any files in your template folder. Double-check the name and file format.</value>
+  </data>
+  <data name="TemplateNotFoundErrorMessage" xml:space="preserve">
+    <value>Template not found.</value>
+  </data>
+  <data name="InternalErrorMessage" xml:space="preserve">
+    <value>Something went wrong inside [teal]Weekly[/].</value>
+  </data>
+  <data name="InternalHelpMessage" xml:space="preserve">
+    <value>Something failed unexpectedly. To see error details, set [olive]LogExceptionsToConsole[/] to [olive]true[/] in your config file at [olive]{0}[/].</value>
+  </data>
+  <data name="ApiUnauthorizedErrorMessage" xml:space="preserve">
+    <value>[olive]{0}[/] API access was denied.</value>
+  </data>
+  <data name="ApiUnauthorizedHelpMessage" xml:space="preserve">
+    <value>Check your [olive]{0}[/] API token. It may be expired or missing. Run [olive]wk token add[/] to fix it.</value>
+  </data>
+  <data name="IssueNotFoundErrorMessage" xml:space="preserve">
+    <value>Couldn’t find issue key [olive]{0}[/].</value>
+  </data>
+  <data name="IssueNotFoundHelpMessage" xml:space="preserve">
+    <value>[teal]Weekly[/] checks issue keys using the Jira API. Check for typos. If it looks right, the API may be down. Enable logging in your config file at [olive]{0}[/] by setting [olive]LogExceptionsToConsole[/] to [olive]true[/].</value>
+  </data>
+  <data name="InitializationErrorMessage" xml:space="preserve">
+    <value>Couldn’t initialize [olive]{0}[/] as the work log folder.</value>
+  </data>
+  <data name="InitializationHelpMessage" xml:space="preserve">
+    <value>[teal]Weekly[/] needs read/write access to the work log directory, as well as your config file at [olive]{0}[/]. Check permissions and try [olive]wk init[/] again.</value>
+  </data>
+  <data name="MissingTokenErrorMessage" xml:space="preserve">
+    <value>Missing [olive]{0}[/] API token.</value>
+  </data>
+  <data name="MissingTokenHelpMessage" xml:space="preserve">
+    <value>To post logs, [teal]Weekly[/] needs API tokens for [olive]Jira[/] and [olive]Tempo[/]. The tokens will need to be created individually on each service. Once you have them, you can them to [teal]Weekly[/] by using the [olive]wk token add[/] command. Examples are below. Replace the [teal]fake[/] values below with your data.
+
+[olive]wk token add jira[/] [teal]you@example.com abc123...[/]
+[olive]wk token add tempo[/] [teal]you@example.com xyz456...[/]</value>
+  </data>
+  <data name="ApiErrorMessage" xml:space="preserve">
+    <value>Got an unexpected response from the [olive]{0}[/] API.</value>
+  </data>
+  <data name="ApiHelpMessage" xml:space="preserve">
+    <value>The API returned an unexpected response. To get more info, enable logging in your config file by setting [olive]LogExceptionsToConsole[/] to [olive]true[/] at [olive]{0}[/].</value>
+  </data>
+  <data name="PushConflictErrorMessage" xml:space="preserve">
+    <value>There are already time entries for this period.</value>
+  </data>
+  <data name="PushConflictHelpMessage" xml:space="preserve">
+    <value>If you're sure your log is correct, use [olive]--force[/] with [olive]wk push[/] to overwrite what’s on the server.</value>
+  </data>
+  <data name="InputHelpMessage" xml:space="preserve">
+    <value>Double check the parameters you're passing to [teal]Weekly[/]. Run [olive]wk --help[/] to double check the values for formats that [teal]Weekly[/] expects.</value>
+  </data>
+  <data name="CreateConflictErrorMessage" xml:space="preserve">
+    <value>A work log with the name [olive]{0}[/] already exists.</value>
+  </data>
+  <data name="CreateConflictHelpMessage" xml:space="preserve">
+    <value>You can try passing in a different work log name via the [olive]--workLog[/] option, or if you know for sure you don't need the existing file you can overwrite it with the [olive]--force[/] option.</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Default.Template" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\default.template.wk;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

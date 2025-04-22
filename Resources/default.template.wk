@@ -1,0 +1,35 @@
+##wkv1
+ 
+# Templates must contain a template name. This is name that
+# gets passed into commands that create work logs. The
+# template named "Default" will get used when no name is
+# passed in.
+
+TemplateName = Default
+
+# You can place your commonly used aliases below and they will
+# be imported into each work log created from this template.
+# Aliases are helpful when modifying work logs by hand. For example,
+# if you had an alias "X" equal to 1 hour, a time entry with "XXX"
+# would calculate to 3 hours.
+#
+# X = 1
+# x = .25
+
+# You can set the default max hours per day to use for work
+# logs created from this template (max hours per day
+# are used to calculate tasks with dynamic hours). 
+# For example, you can create a template for summer hours:
+#
+# mtwr = 9
+# f = 4
+
+# Unlike work logs, templates need to represent every day of 
+# the week since work logs can be created for any period of
+# time less than or equal to seven days.
+
+            u   m   t   w   r   f   s
+#-------------------------------------#
+time-31     - .25 .25 .25 .25   -   -
+time-32     -  .5   -   -   -   -   -
+time-33     -   -   1   - 1.5   -   -
