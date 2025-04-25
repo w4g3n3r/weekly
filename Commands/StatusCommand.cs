@@ -83,7 +83,7 @@ namespace Weekly.Commands
                             new Text(issue)
                                 .Justify(Justify.Left),
                             new Padder(
-                                new Markup($"[dim]{description}[/]")
+                                new Markup($"[dim]{description.EscapeMarkup()}[/]")
                                     .Justify(Justify.Left)
                                     .Crop())
                                 .Padding(1, 0, 0, 0))

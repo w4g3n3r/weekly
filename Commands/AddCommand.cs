@@ -1,4 +1,5 @@
-﻿using System.CommandLine;
+﻿using Spectre.Console;
+using System.CommandLine;
 using System.Text.RegularExpressions;
 using Weekly.Exceptions;
 using Weekly.Services;
@@ -70,7 +71,7 @@ namespace Weekly.Commands
                 await _weeklyService.SaveWorkLogAsync(workLog);
 
                 WriteStatus($"Added [yellow]{hours}[/] hour(s) to [yellow]{issueKey}[/].");
-                WriteStatus(timeEntry.ToString());
+                WriteStatus(timeEntry.ToString().EscapeMarkup());
 
             }
             catch (ProgramException ex)
