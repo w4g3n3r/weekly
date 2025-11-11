@@ -188,7 +188,7 @@ namespace Weekly.Serializers
             {
                 foreach (var c in key)
                 {
-                    if (workLog.Period.Days.ContainsKey(c))
+                    if (WorkLogPeriod.IsValidDayOfWeek(c))
                     {
                         workLog.HoursPerDay[c] = doubleValue;
                     }

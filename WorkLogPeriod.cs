@@ -2,6 +2,8 @@
 {
     public class WorkLogPeriod
     {
+        private const string VALID_WEEKDAYS = "umtwrfs";
+
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
         public int Length => EndDate.Subtract(StartDate).Days + 1;
@@ -17,7 +19,7 @@
 
             for (var day = startDate; day <= endDate; day = day.AddDays(1))
             {
-                Days.Add("umtwrfs"[(int)day.DayOfWeek], day);
+                Days.Add(VALID_WEEKDAYS[(int)day.DayOfWeek], day);
             }
         }
 
@@ -71,10 +73,24 @@
 
         public static WorkLogPeriod GetCurrentPeriod(char firstDayOfWeek, int length)
         {
-            var today = DateTime.Today;
+            return GetPeriodForDate(DateTime.Today, firstDayOfWeek, length);
+        }
+
+        public static WorkLogPeriod GetLastPeriod(char firstDayOfWeek, int length)
+        {
+            var currentPeriod = GetCurrentPeriod(firstDayOfWeek, length);
+
+            var lastPeriodStart = currentPeriod.StartDate.Subtract(TimeSpan.FromDays(7));
+
+            return GetPeriodForDate(lastPeriodStart, firstDayOfWeek, length);
+
+        }
+
+        public static WorkLogPeriod GetPeriodForDate(DateTime date, char firstDayOfWeek, int length)
+        {
             var startingDay = GetDayOfWeek(firstDayOfWeek);
 
-            int startOffset = (int)today.DayOfWeek - (int)startingDay;
+            int startOffset = (int)date.DayOfWeek - (int)startingDay;
 
             if (startOffset < 0)
             {
@@ -85,19 +101,19 @@
             {
                 // We're outside of the current work log period
                 // Maybe on a weekend or something. Create a new one-off period
-                // with just one day... today.
-                return new WorkLogPeriod(today, today);
+                // with just one day...
+                return new WorkLogPeriod(date, date);
             }
             else
             {
-                var startDate = today.AddDays(-startOffset);
+                var startDate = date.AddDays(-startOffset);
                 return new WorkLogPeriod(startDate, length);
             }
         }
 
         public static char GetDayOfWeek(DayOfWeek dayOfWeek)
         {
-            return "umtwrfs"[((int)dayOfWeek)];
+            return VALID_WEEKDAYS[((int)dayOfWeek)];
         }
 
         public static DayOfWeek GetDayOfWeek(char dayOfWeek)
@@ -114,5 +130,7 @@
                 _ => throw new ArgumentException("Invalid day of week.", nameof(dayOfWeek))
             };
         }
+
+        public static bool IsValidDayOfWeek(char dayOfWeek) => VALID_WEEKDAYS.Contains(dayOfWeek);
     }
 }

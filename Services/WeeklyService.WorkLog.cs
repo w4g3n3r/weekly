@@ -278,6 +278,12 @@ namespace Weekly.Services
         {
             try
             {
+                if (workLogName.Equals("p", StringComparison.OrdinalIgnoreCase))
+                {
+                    var lastPeriod = WorkLogPeriod.GetLastPeriod(_configuration.WeekBeginsOn[0], _configuration.DaysPerFile);
+                    workLogName = lastPeriod.StartDate.ToString("yyyyMMdd");
+                }
+
                 string workLogPath = _fileManager
                     .GetWorkLogFilePath(WorkLogDirectory, workLogName);
 

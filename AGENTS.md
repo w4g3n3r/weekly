@@ -29,10 +29,10 @@ Welcome, fellow Codex agents! This file gives you quick, actionable guidance for
 
 ## Commands At A Glance
 - `wk init [-d <dir>]` — initialize work log/templates and write config
-- `wk create [options]` — create a new work log for a period
-- `wk add [day] <KEY-123> [hours]` — add time to an issue
-- `wk status [-w <name>]` — show table of hours and totals
-- `wk push [--force]` — push local entries to Tempo (optionally delete/replace)
+- `wk create [options]` — create a new work log for a period (use `-w p` for previous period)
+- `wk add [day] <KEY-123> [hours]` — add time to an issue (use `-w p` for previous period)
+- `wk status [-w <name>]` — show table of hours and totals (use `p` for previous period)
+- `wk push [--force]` — push local entries to Tempo (use `-w p` for previous period)
 - `wk token add|rm|clr` — manage Jira (Basic) and Tempo (Bearer) tokens
 
 See `docs/commands.md` for full options and examples.

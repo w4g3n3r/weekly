@@ -16,7 +16,7 @@ namespace Weekly.Commands
         {
             var workLogOption = new Option<string>(
                 new string[] { "--workLog", "-w" },
-                description: "The file name of the work log to create."
+                description: "The file name of the work log to create. Use 'p' for previous period."
             );
 
             var startDateOption = new Option<DateTime?>(

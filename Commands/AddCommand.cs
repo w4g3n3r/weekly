@@ -21,7 +21,7 @@ namespace Weekly.Commands
         {
             var workLogOption = new Option<string>(
                 new string[] { "--workLog", "-w" },
-                description: "The file name of the work log to add the time entry to. If not provided, the current work log will be used."
+                description: "The file name of the work log to add the time entry to. Use 'p' for previous period. If not provided, the current work log will be used."
             );
             var templateOption = new Option<string>(
                 new string[] { "--template", "-t" },

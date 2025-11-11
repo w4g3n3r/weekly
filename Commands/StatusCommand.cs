@@ -18,7 +18,7 @@ namespace Weekly.Commands
         {
             var workLogOption = new Option<string>(
                 new string[] { "--workLog", "-w" },
-                description: "The file name of the work log to show the status of. If not provided, the current work log will be shown."
+                description: "The file name of the work log to show the status of. Use 'p' for previous period. If not provided, the current work log will be shown."
             );
 
             AddAlias("s");

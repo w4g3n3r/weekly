@@ -2,7 +2,7 @@
   "profiles": {
     "Weekly": {
       "commandName": "Project",
-      "commandLineArgs": "init"
+      "commandLineArgs": "s -w p"
     }
   }
 }

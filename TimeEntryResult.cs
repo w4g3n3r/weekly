@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Spectre.Console;
+using System.Text;
 
 namespace Weekly
 {
@@ -12,7 +13,7 @@ namespace Weekly
             var sb = new StringBuilder();
             sb.Append(this.IsSuccessful ? "[green]√[/]" : "[red]X[/]");
             sb.Append(" ");
-            sb.Append(TimeEntry.ToString());
+            sb.Append(TimeEntry.ToString().EscapeMarkup());
 
             return sb.ToString();
         }
