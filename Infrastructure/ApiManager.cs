@@ -81,10 +81,11 @@ namespace Weekly.Infrastructure
 
             try
             {
-                var resposne = await httpClient.PostAsJsonAsync("worklogs", post);
+                var response = await httpClient.PostAsJsonAsync("worklogs", post);
+                response.EnsureSuccessStatusCode();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
