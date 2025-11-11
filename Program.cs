@@ -25,11 +25,11 @@ namespace Weekly
 
         private static void ConfigureServices(IServiceCollection services)
         {
+            // Register configuration
             var config = Configuration.FileExists() ? Configuration.Load() : Configuration.Create();
             services.AddSingleton(config);
 
-            // Register configuration
-            services.AddSingleton(config);
+            // Register managers
             services.AddSingleton<FileManager>();
             services.AddSingleton<TokenManager>();
             services.AddSingleton<CacheManager>();

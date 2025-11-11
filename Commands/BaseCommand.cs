@@ -19,6 +19,14 @@ namespace Weekly.Commands
         {
             _weeklyService = weeklyService ?? throw new ArgumentNullException(nameof(weeklyService));
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+
+            this.AddValidator(result =>
+            {
+                if (!Configuration.FileExists())
+                {
+                    result.ErrorMessage = $"Weekly's config file could not be created. Check your permissions on {Configuration.Path}.";
+                }
+            });
         }
 
         protected void WriteProgramExceptionAndExit(ProgramException ex)

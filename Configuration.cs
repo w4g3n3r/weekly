@@ -142,11 +142,8 @@ namespace Weekly
         public static Configuration Create()
         {
             var config = Configuration.Default;
-            if (config.TrySave())
-            {
-                return config;
-            }
-            return null;
+            _ = config.TrySave();
+            return config;
         }
 
         public static bool FileExists()

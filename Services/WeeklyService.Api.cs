@@ -29,7 +29,7 @@ namespace Weekly.Services
                 throw new IssueNotFoundException(issueKey, ex);
 
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not ProgramException)
             {
                 throw new InternalException(ex);
             }

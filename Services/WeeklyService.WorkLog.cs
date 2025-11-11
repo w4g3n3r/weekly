@@ -111,7 +111,7 @@ namespace Weekly.Services
             {
                 await _fileManager.SaveWorkLogAsync(workLog);
             }
-            catch (Exception ex)
+            catch (Exception ex) when (ex is not ProgramException)
             {
                 throw new InternalException(ex);
             }
@@ -264,13 +264,13 @@ namespace Weekly.Services
             {
                 throw new MissingTemplateDirectoryException(ex);
             }
-            catch (Exception ex) when (ex is ArgumentNullException or FileNotFoundException)
-            {
-                throw new TemplateNotFoundException(ex);
-            }
             catch (InvalidOperationException ex)
             {
                 throw new WorkLogParseException(ex);
+            }
+            catch (Exception ex) when (ex is ArgumentNullException or FileNotFoundException)
+            {
+                throw new TemplateNotFoundException(ex);
             }
         }
 
@@ -289,13 +289,13 @@ namespace Weekly.Services
             {
                 throw new MissingWorkLogDirectoryException(ex);
             }
-            catch (Exception ex) when (ex is ArgumentNullException or FileNotFoundException)
-            {
-                throw new WorkLogNotFoundException(ex);
-            }
             catch (InvalidOperationException ex)
             {
                 throw new WorkLogParseException(ex);
+            }
+            catch (Exception ex) when (ex is ArgumentNullException or FileNotFoundException)
+            {
+                throw new WorkLogNotFoundException(ex);
             }
         }
 
@@ -315,13 +315,13 @@ namespace Weekly.Services
             {
                 throw new MissingWorkLogDirectoryException(ex);
             }
-            catch (Exception ex) when (ex is ArgumentNullException or FileNotFoundException)
-            {
-                throw new WorkLogNotFoundException(ex);
-            }
             catch (InvalidOperationException ex)
             {
                 throw new WorkLogParseException(ex);
+            }
+            catch (Exception ex) when (ex is ArgumentNullException or FileNotFoundException)
+            {
+                throw new WorkLogNotFoundException(ex);
             }
         }
     }
