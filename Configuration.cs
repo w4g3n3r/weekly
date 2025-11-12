@@ -1,7 +1,16 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Weekly
 {
+    [JsonSerializable(typeof(Configuration))]
+    [JsonSourceGenerationOptions(
+        WriteIndented = true,
+        PropertyNameCaseInsensitive = true)]
+    internal partial class ConfigurationJsonContext : JsonSerializerContext
+    {
+    }
+
     public sealed class Configuration
     {
         private const string AppName = "Weekly";
@@ -102,11 +111,7 @@ namespace Weekly
                     Directory.CreateDirectory(directory);
                 }
 
-                string json = JsonSerializer.Serialize(this, new JsonSerializerOptions
-                {
-                    WriteIndented = true,
-                    PropertyNameCaseInsensitive = true
-                });
+                string json = JsonSerializer.Serialize(this, ConfigurationJsonContext.Default.Configuration);
                 File.WriteAllText(Configuration.Path, json);
                 return true;
             }
@@ -130,11 +135,7 @@ namespace Weekly
 
             var json = File.ReadAllText(Path);
             var deserializedConfig = JsonSerializer
-                .Deserialize<Configuration>(json, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    WriteIndented = true
-                });
+                .Deserialize(json, ConfigurationJsonContext.Default.Configuration);
 
             return MergeWithDefault(deserializedConfig);
         }
