@@ -32,7 +32,15 @@ namespace Weekly.Commands
             try
             {
                 WorkLog workLog = await _weeklyService.GetWorkLogAsync(workLogName);
-                var maxWidth = Console.WindowWidth;
+                int maxWidth;
+                try
+                {
+                    maxWidth = Console.WindowWidth;
+                }
+                catch (IOException)
+                {
+                    maxWidth = 120;
+                }
 
                 var issueGroup = workLog
                     .GroupBy(e => e.IssueKey)
