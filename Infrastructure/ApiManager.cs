@@ -1,6 +1,7 @@
 ﻿using Flurl;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Weekly.Exceptions;
 using Weekly.Infrastructure.Cacheables;
@@ -35,7 +36,7 @@ namespace Weekly.Infrastructure
 
             var httpClient = GetJiraHttpClient();
 
-            var issue = await httpClient.GetFromJsonAsync<JiraIssue>($"issue/{issueKey}?fields=summary");
+            var issue = await httpClient.GetFromJsonAsync($"issue/{issueKey}?fields=summary", WeeklyJsonContext.Default.JiraIssue);
 
             if (issue == null)
                 return null;
@@ -55,7 +56,7 @@ namespace Weekly.Infrastructure
 
             var httpClient = GetJiraHttpClient();
 
-            var account = await httpClient.GetFromJsonAsync<JiraAccount>("myself");
+            var account = await httpClient.GetFromJsonAsync("myself", WeeklyJsonContext.Default.JiraAccount);
 
             if (account == null)
                 return null;
@@ -70,7 +71,7 @@ namespace Weekly.Infrastructure
         {
             var httpClient = GetTempoHttpClient();
 
-            var post = new TempoWorkLog
+            var post = new TempoWorkLogPost
             {
                 StartDate = entry.Date.Value.ToString("yyyy-MM-dd"),
                 AuthorAccountId = accountId,
@@ -81,7 +82,7 @@ namespace Weekly.Infrastructure
 
             try
             {
-                var response = await httpClient.PostAsJsonAsync("worklogs", post);
+                var response = await httpClient.PostAsJsonAsync("worklogs", post, WeeklyJsonContext.Default.TempoWorkLogPost);
                 response.EnsureSuccessStatusCode();
                 return true;
             }
@@ -102,7 +103,7 @@ namespace Weekly.Infrastructure
                 .SetQueryParam("from", start.ToString("yyyy-MM-dd"))
                 .SetQueryParam("to", end.ToString("yyyy-MM-dd"));
 
-            var response = await httpClient.GetFromJsonAsync<TempoWorklogResponse>(url);
+            var response = await httpClient.GetFromJsonAsync(url, WeeklyJsonContext.Default.TempoWorklogResponse);
 
             if (response != null)
             {
@@ -177,9 +178,9 @@ namespace Weekly.Infrastructure
         }
 
         [JsonUnmappedMemberHandling(JsonUnmappedMemberHandling.Skip)]
-        private class JiraIssue
+        internal class JiraIssue
         {
-            public class JiraIssueFields
+            internal class JiraIssueFields
             {
                 public string Summary { get; set; }
             }
@@ -191,7 +192,7 @@ namespace Weekly.Infrastructure
         }
 
         [JsonUnmappedMemberHandling(JsonUnmappedMemberHandling.Skip)]
-        private class JiraAccount
+        internal class JiraAccount
         {
             public string AccountId { get; set; }
             public string DisplayName { get; set; }
@@ -199,19 +200,18 @@ namespace Weekly.Infrastructure
         }
 
         [JsonUnmappedMemberHandling(JsonUnmappedMemberHandling.Skip)]
-        private class TempoWorkLog
+        internal class TempoWorkLogPost
         {
+            [JsonPropertyName("authorAccountId")]
             public string AuthorAccountId { get; set; }
+            [JsonPropertyName("timeSpentSeconds")]
             public int TimeSpentSeconds { get; set; }
+            [JsonPropertyName("startDate")]
             public string StartDate { get; set; }
+            [JsonPropertyName("issueId")]
             public int IssueId { get; set; }
+            [JsonPropertyName("description")]
             public string Description { get; set; }
-        }
-
-        [JsonUnmappedMemberHandling(JsonUnmappedMemberHandling.Skip)]
-        private class TempoWorkLogCollection
-        {
-            public TempoWorkLog[] Ressults { get; set; }
         }
 
 
@@ -261,7 +261,7 @@ namespace Weekly.Infrastructure
         public class TempoAttributes
         {
             public string Self { get; set; }
-            public List<object> Values { get; set; } = new(); // Can be replaced with a concrete class if values have structure
+            public List<JsonElement> Values { get; set; } = new(); // Can be replaced with a concrete class if values have structure
         }
     }
 }
