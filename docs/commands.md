@@ -36,6 +36,18 @@ Root command description: "Weekly, an awesome little time keeping app."
   - `wk add ABC-123 x` (uses alias `x` = 0.25 hours if configured)
   - `wk add -w p ABC-123 2` (add to previous period worklog)
 
+## remove (alias: rm)
+- Description: Remove a time entry from a work log.
+- Options:
+  - `--workLog`, `-w` string: Target work log; defaults to current log. Use `p` for previous period.
+- Arguments (positional, flexible order):
+  - `day` (optional): One of `s m t w r f u`. Defaults to current day.
+  - `issueId` (required): Matches `KEY-123` pattern.
+- Examples:
+  - `wk remove m ABC-123`
+  - `wk rm ABC-123` (removes entry for current day)
+  - `wk rm -w p ABC-123` (remove from previous period worklog)
+
 ## status (alias: s)
 - Description: Show the status of a work log as a table with per-day totals.
 - Options:

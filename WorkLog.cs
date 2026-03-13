@@ -27,6 +27,21 @@ namespace Weekly
             CalculateDynamicHours(minimumValue);
         }
 
+        public TimeEntry RemoveTimeEntry(string issueKey, string weekDay)
+        {
+            var timeEntry = this
+                .FirstOrDefault(t => t.IssueKey.Equals(issueKey, StringComparison.OrdinalIgnoreCase) &&
+                    t.WeekDay.ToString().Equals(weekDay.ToString(), StringComparison.OrdinalIgnoreCase));
+
+            if (timeEntry == null)
+            {
+                throw new Exceptions.InputException($"No time entry found for [yellow]{issueKey}[/] on [yellow]{weekDay}[/].");
+            }
+
+            this.Remove(timeEntry);
+            return timeEntry;
+        }
+
         public TimeEntry AddTimeEntry(
             string issueKey,
             string weekDay,

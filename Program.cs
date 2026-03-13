@@ -42,6 +42,7 @@ namespace Weekly
             services.AddSingleton<TokenCommand>();
             services.AddSingleton<PushCommand>();
             services.AddSingleton<CreateCommand>();
+            services.AddSingleton<RemoveCommand>();
 
             // Register serializers
             services.AddSingleton<IWorkLogSerializer, DefaultWorkLogSerializer>();
@@ -71,7 +72,8 @@ namespace Weekly
                         provider.GetRequiredService<AddCommand>(),
                         provider.GetRequiredService<TokenCommand>(),
                         provider.GetRequiredService<PushCommand>(),
-                        provider.GetRequiredService<CreateCommand>()
+                        provider.GetRequiredService<CreateCommand>(),
+                        provider.GetRequiredService<RemoveCommand>()
                 };
                 rootCommand.Description = "Weekly, an awesome little time keeping app.";
                 return rootCommand;
